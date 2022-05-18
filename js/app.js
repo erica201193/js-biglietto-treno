@@ -25,16 +25,16 @@ posso inserire un minimo / massimo di km possibili?
 
 /* Richiesta dati */
 
-const kilometri = prompt("Inserisci il numero di kilometri che desideri percorrere");
+let kilometri = prompt("Inserisci il numero di kilometri che desideri percorrere");
 
-const eta = prompt("Inserisci la tua età");
+let eta = prompt("Inserisci la tua età");
 
 
 /* Validazione dati inseriti */
 
-const numKm = parseInt(kilometri);
+let numKm = parseInt(kilometri);
 
-const numEta = parseInt(eta);
+let numEta = parseInt(eta);
 
 
 if (isNaN(numKm)) {
@@ -47,26 +47,28 @@ if (isNaN(numEta)) {
 
 /* Stampa dati inseriti */
 
-document.getElementById("etaUtente").innerHTML = (numEta)
+document.getElementById("etaUtente").innerHTML = (numEta) + " "+ "anni"
 
-document.getElementById("kmUtente").innerHTML = (numKm)
+document.getElementById("kmUtente").innerHTML = (numKm) + " "+ "kilometri"
 
 
 /* Prezzo */
 
-const prezzofinale = numKm * 0.21;
-document.getElementById("prezzoUtente").innerHTML = (prezzofinale.toFixed(2))
-console.log (prezzofinale.toFixed(2))
+let prezzoalkm = numKm * 0.21;
+document.getElementById("prezzoUtente").innerHTML = (prezzoalkm.toFixed(2))
+
+let prezzo
 
 if (numEta < 18) {
-    document.getElementById("prezzoUtente").innerHTML = (prezzofinale - (prezzofinale * 20/100) );
-} else {
-    document.getElementById("prezzoUtente").innerHTML = (prezzofinale);
-};
-
-
-if (numEta > 65) {
-    document.getElementById("prezzoUtente").innerHTML = (prezzofinale - (prezzofinale * 40/100) );
-} else {
-    document.getElementById("prezzoUtente").innerHTML = (prezzofinale);
-};
+    prezzo = (prezzoalkm - (prezzoalkm * 20/100) )
+    let printPrezzo = document.getElementById ("prezzoUtente")
+    printPrezzo.innerHTML = (prezzo.toFixed(2))
+} 
+else if (numEta > 65) {
+    prezzo = (prezzoalkm - (prezzoalkm * 40/100) )
+    let printPrezzo = document.getElementById ("prezzoUtente")
+    printPrezzo.innerHTML = (prezzo.toFixed(2))
+}
+else prezzo = prezzoalkm
+let printPrezzo = document.getElementById ("prezzoUtente")
+printPrezzo.innerHTML = (prezzo.toFixed(2))
