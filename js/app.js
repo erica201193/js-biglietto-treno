@@ -36,6 +36,7 @@ const numKm = parseInt(kilometri);
 
 const numEta = parseInt(eta);
 
+
 if (isNaN(numKm)) {
     alert("Il numero di kilometri inseriti non è valido");
 }
@@ -46,13 +47,16 @@ if (isNaN(numEta)) {
 
 /* Stampa dati inseriti */
 
-const spanNumEta = document.getElementById("etaUtente")
+document.getElementById("etaUtente").innerHTML = (numEta)
 
-spanNumEta.innerHTML = (numEta);
+document.getElementById("kmUtente").innerHTML = (numKm)
 
+
+/* Prezzo */
 
 const prezzofinale = numKm * 0.21;
-
+document.getElementById("prezzoUtente").innerHTML = (prezzofinale.toFixed(2))
+console.log (prezzofinale.toFixed(2))
 
 if (numEta < 18) {
     document.getElementById("prezzoUtente").innerHTML = (prezzofinale - (prezzofinale * 20/100) );
